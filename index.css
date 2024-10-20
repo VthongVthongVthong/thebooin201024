@@ -1,0 +1,875 @@
+
+
+    * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    }
+
+    html, body {
+        height: 100%;
+        overflow: hidden; /* Ẩn thanh cuộn */
+    }
+
+    body {
+    width: 100%;
+    background-color: #dd84d3;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    @media (max-height: 500px) {
+    body {
+        margin: 25% 0 25% 0;
+    }
+    }
+
+    @keyframes moveUp {
+        from {
+            transform: translateY(100vh); /* Bắt đầu từ bên dưới viewport */
+        }
+        to {
+            transform: translateY(0);
+        }
+    }
+
+
+    .envelop {
+    animation: moveUp 2s ease-in-out forwards;
+    width: 15rem;
+    height: 10rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    }
+    @media (min-width: 400px) and (max-width: 600px) {
+    .envelop {
+        width: 20rem;
+        height: 15rem;
+    }
+    }
+    @media (min-width: 600px) {
+    .envelop {
+        width: 25rem;
+        height: 20rem;
+    }
+    }
+    @media (min-width: 600px) and (min-height: 600px) {
+    .envelop {
+        bottom: 20%;
+    }
+    }
+    .envelop__front-paper {
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    border-radius: 0.7rem;
+    border: 0.35rem solid #967b5c;
+    background-color: #ba9872;
+    clip-path: polygon(100% 0%, 50% 70%, 0% 0%, 0% 100%, 100% 100%);
+    z-index: 300;
+    }
+    .envelop__back-paper {
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    border-radius: 0.7rem;
+    background-color: #967b5c;
+    clip-path: polygon(0% 0%, 100% 0%, 90% 100%, 0% 90%);
+    z-index: 100;
+    }
+    .envelop__up-paper {
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    position: relative;
+    border-radius: 0.7rem;
+    background-color: #967b5c;
+    z-index: 400;
+    clip-path: polygon(0% 0%, 100% 0%, 50% 81%);
+    }
+    .envelop__sticker {
+    width: 100%;
+    height: 20%;
+    position: absolute;
+    margin: auto;
+    top: 30%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 400;
+    background-image: url("https://www.freepnglogos.com/uploads/heart-png/emoji-heart-33.png");
+    background-color: #f9f9f9;
+    border: 0.3rem solid #e2e2e2;
+    background-size: 2rem;
+    background-position: center;
+    }
+    @media (max-width: 400px) {
+    .envelop__sticker {
+        background-size: 1.2rem;
+    }
+    }
+    @media (min-width: 600px) {
+    .envelop__sticker {
+        height: 15%;
+    }
+    }
+    .envelop__false-sticker {
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    margin: auto;
+    top: 30%;
+    left: 80%;
+    bottom: 0;
+    right: 0;
+    z-index: 300;
+    background-image: url("https://www.freepnglogos.com/uploads/heart-png/emoji-heart-33.png");
+    background-color: #f9f9f9;
+    border: 0.3rem solid #e2e2e2;
+    background-size: 2rem;
+    background-position: center;
+    }
+    @media (max-width: 400px) {
+    .envelop__false-sticker {
+        background-size: 1.2rem;
+    }
+    }
+    @media (min-width: 600px) {
+    .envelop__false-sticker {
+        height: 15%;
+    }
+    }
+    .envelop__content {
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    z-index: 200;
+    }
+    .love-notes {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+
+    .note {
+    width: 95%;
+    height: 30%;
+    background-color: #f9f9f9;
+    position: absolute;
+    overflow: hidden;
+    transition: height 0.5s, opacity 0.25s;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    }
+    .note:nth-child(1) {
+    bottom: 60%;
+    }
+    .note:nth-child(2) {
+    bottom: 40%;
+    }
+    .note:nth-child(3) {
+    bottom: 20%;
+    }
+    .note:hover {
+    cursor: pointer;
+    height: 45%;
+    }
+    .note__text {
+    font-family: "Sofia";
+    padding: 1rem;
+    }
+    .note__text p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    }
+    @media (min-width: 300px) and (max-width: 600px) {
+    .note__text p {
+        font-size: 1.025rem;
+    }
+    }
+    @media (min-width: 600px) {
+    .note__text p {
+        font-size: 1.15rem;
+    }
+    }
+
+    .scissors {
+    cursor: url("https://i.postimg.cc/GtLCdKxR/sisors.png"), pointer;
+    }
+    .scissors:active {
+    cursor: url("https://i.postimg.cc/GtXQ7WPZ/pngwing-com.png"), pointer;
+    }
+
+    .cursor {
+    cursor: pointer;
+    }                                         
+                
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* body {
+        background: #111;
+        min-height: 100vh;
+        overflow: hidden;
+        
+    } */
+
+    body {
+        width: 100%;
+        height: 100vh; /* Đảm bảo chiều cao trang chiếm toàn bộ chiều cao cửa sổ */
+        
+        background-color: #111;
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 3s ease; /* Thêm hiệu ứng chuyển màu trong 3 giây */
+    }
+    
+
+    body.fade {
+        width: 100%;
+        height: 100vh; /* Đảm bảo chiều cao trang chiếm toàn bộ chiều cao cửa sổ */
+        height: 1000px;  
+        background: linear-gradient(to bottom, #111, #dd84d3); /* Màu nền mới với gradient */
+        background-size: 100% 200%; /* Kích thước nền lớn hơn để tạo hiệu ứng từ trên xuống */
+        overflow: hidden;
+    }
+
+    .star {
+        position: absolute;
+        top: -20px;
+        color: #fff;
+        animation: animate 5s linear forwards;
+    }
+
+    .star::before {
+        content: "\f005";
+        font-family: FontAwesome;
+        text-shadow: 0 0 5px #fff, 0 0 20px #fff, 0 0 50px #fff;
+    }
+
+    @keyframes animate {
+        0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+        }
+
+        80% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateY(100vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .star {
+            font-size: 8px;
+        }
+    }
+
+    .container {
+        opacity: 0;
+        transition: opacity 4s ease-in; /* Chỉ cần điều chỉnh opacity */
+        visibility: hidden; /* Ẩn ban đầu */
+        width: 100px;
+        height: 300px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        -moz-transform: scale(0.6);
+        -ms-transform: scale(0.6);
+        -webkit-transform: scale(0.6);
+        transform: scale(0.6);
+    }
+
+    .container.visible {
+        opacity: 1; /* Hiện khi có class visible */
+        visibility: visible; /* Đảm bảo visibility là visible khi có class */
+    }
+
+    .hidden {
+        visibility: hidden; /* Đảm bảo rằng class hidden ẩn đi */
+        opacity: 0; /* Đặt opacity là 0 khi ở trạng thái ẩn */
+    }
+
+    .flower {
+        padding-right: 60%;
+        position: relative;
+        top: 500px;
+    }
+    .container div {
+        position: absolute;
+    }
+    .container .glass {
+        height: 420px;
+        width: 250px;
+        border: 3px solid rgba(255, 255, 255, 0.5);
+        -moz-border-radius: 300px 300px 0px 0px;
+        -webkit-border-radius: 300px;
+        border-radius: 300px 300px 0px 0px;
+        left: -80px;
+        top: -100px;
+        border-bottom: 15px solid rgba(255, 255, 255, 0.5);
+    }
+    .container .glass:after {
+        width: 8px;
+        background: rgba(255, 255, 255, 0.28);
+        content: "";
+        position: absolute;
+        height: 80px;
+        top: 430px;
+        border-radius: 100px;
+        left: 10px;
+        top: 180px;
+    }
+    .container .glass:before {
+        width: 8px;
+        background: rgba(255, 255, 255, 0.28);
+        content: "";
+        position: absolute;
+        height: 15px;
+        top: 430px;
+        border-radius: 100px;
+        left: 10px;
+        top: 280px;
+    }
+    .container .glow {
+        position: absolute;
+        width: 170px;
+        height: 170px;
+        -moz-border-radius: 100%;
+        -webkit-border-radius: 100%;
+        border-radius: 100%;
+        border: 1px solid rgba(245, 148, 184, 0.47);
+        box-shadow: 0px 0px 10px #f594b8;
+        left: -40px;
+        top: -40px;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        -moz-animation: glowing 2.5s ease-in-out infinite;
+        -webkit-animation: glowing 2.5s ease-in-out infinite;
+        animation: glowing 2.5s ease-in-out infinite;
+    }
+    .container .rose-petals > div {
+        background: #d52d58;
+        width: 45px;
+        height: 80px;
+        position: absolute;
+        -moz-transition: all 0.5s ease-out;
+        -o-transition: all 0.5s ease-out;
+        -webkit-transition: all 0.5s ease-out;
+        transition: all 0.5s ease-out;
+    }
+    .container .rose-petals > div:nth-child(1) {
+        border-radius: 15px;
+        left: 20px;
+        top: -6px;
+        background: #d52d58;
+    }
+    .container .rose-petals > div:nth-child(2),
+    .container .rose-petals > div:nth-child(4),
+    .container .rose-petals > div:nth-child(6) {
+        border-radius: 0px 30px 0px 30px;
+        background: #b81b43;
+        left: 0;
+        transform-origin: bottom right;
+    }
+    .container .rose-petals > div:nth-child(3),
+    .container .rose-petals > div:nth-child(5),
+    .container .rose-petals > div:nth-child(7) {
+        border-radius: 30px 0px 30px 0px;
+        left: 40px;
+        transform-origin: bottom left;
+    }
+    .container .rose-petals > div:nth-child(2) {
+        -moz-animation: openRose2 3s ease-in-out;
+        -webkit-animation: openRose2 3s ease-in-out;
+        animation: openRose2 3s ease-in-out;
+        -moz-animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+        z-index: 5;
+        background: #9e183a;
+        top: 10px;
+        height: 70px;
+        -moz-animation-delay: 2s;
+        -webkit-animation-delay: 2s;
+        animation-delay: 2s;
+    }
+    .container .rose-petals > div:nth-child(3) {
+        -moz-animation: openRose3 3s ease-in-out;
+        -webkit-animation: openRose3 3s ease-in-out;
+        animation: openRose3 3s ease-in-out;
+        -moz-animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+        z-index: 4;
+        background: #9e183a;
+        top: 10px;
+        height: 70px;
+        -moz-animation-delay: 2s;
+        -webkit-animation-delay: 2s;
+        animation-delay: 2s;
+    }
+    .container .rose-petals > div:nth-child(4) {
+        -moz-animation: openRose4 3s ease-in-out;
+        -webkit-animation: openRose4 3s ease-in-out;
+        animation: openRose4 3s ease-in-out;
+        -moz-animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+        z-index: 3;
+        background: #b81b43;
+        top: 5px;
+        height: 75px;
+        -moz-animation-delay: 2s;
+        -webkit-animation-delay: 2s;
+        animation-delay: 2s;
+    }
+    .container .rose-petals > div:nth-child(5) {
+        -moz-animation: openRose5 3s ease-in-out;
+        -webkit-animation: openRose5 3s ease-in-out;
+        animation: openRose5 3s ease-in-out;
+        -moz-animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+        z-index: 2;
+        background: #b81b43;
+        top: 5px;
+        height: 75px;
+        -moz-animation-delay: 2s;
+        -webkit-animation-delay: 2s;
+        animation-delay: 2s;
+    }
+    .container .rose-petals > div:nth-child(6) {
+        -moz-animation: openRose6 3s ease-in-out;
+        -webkit-animation: openRose6 3s ease-in-out;
+        animation: openRose6 3s ease-in-out;
+        -moz-animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+        z-index: 1;
+        background: #c9204b;
+        top: "";
+        height: "";
+        -moz-animation-delay: 2s;
+        -webkit-animation-delay: 2s;
+        animation-delay: 2s;
+    }
+    .container .rose-petals > div:nth-child(7) {
+        -moz-animation: openRose7 3s ease-in-out;
+        -webkit-animation: openRose7 3s ease-in-out;
+        animation: openRose7 3s ease-in-out;
+        -moz-animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+        z-index: 0;
+        background: #c9204b;
+        top: "";
+        height: "";
+        -moz-animation-delay: 2s;
+        -webkit-animation-delay: 2s;
+        animation-delay: 2s;
+    }
+    .container .rose-leaves > div:nth-last-child(1) {
+        width: 55px;
+        height: 30px;
+        background: #338f37;
+        position: absolute;
+        top: 60px;
+        left: 15px;
+        -moz-border-radius: 100px;
+        -webkit-border-radius: 100px;
+        border-radius: 100px;
+    }
+    .container .rose-leaves > div:nth-child(1) {
+        width: 6px;
+        height: 230px;
+        border: none;
+        top: 80px;
+        background: #066406;
+        left: 40px;
+    }
+    .container .thorns > div {
+        width: 30px;
+        height: 30px;
+        background: #066406;
+        top: 100px;
+        left: 10px;
+    }
+    .container .thorns > div:after {
+        width: 41px;
+        height: 31px;
+        -moz-border-radius: 100%;
+        -webkit-border-radius: 100%;
+        border-radius: 100%;
+        background: #122139;
+        content: "";
+        position: absolute;
+        left: -12px;
+        top: 17px;
+    }
+    .container .thorns > div:before {
+        width: 41px;
+        height: 31px;
+        -moz-border-radius: 100%;
+        -webkit-border-radius: 100%;
+        border-radius: 100%;
+        background: #122139;
+        content: "";
+        position: absolute;
+        left: -11px;
+        top: -11px;
+        z-index: 0;
+    }
+    .container .thorns > div:nth-child(2) {
+        top: 150px;
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+        left: 45px;
+    }
+    .container .thorns > div:nth-child(3) {
+        top: 180px;
+    }
+    .container .thorns > div:nth-child(4) {
+        top: 220px;
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+        left: 45px;
+    }
+    .container .sparkles {
+        bottom: -40px;
+    }
+    .container .sparkles > div {
+        width: 4px;
+        height: 4px;
+        border-radius: 100px;
+        background: #ff96c0;
+        box-shadow: 0px 0px 12px 2px #ff4e85;
+        bottom: 0;
+        opacity: 0;
+        -moz-animation: sparkle 4s ease-in-out infinite;
+        -webkit-animation: sparkle 4s ease-in-out infinite;
+        animation: sparkle 4s ease-in-out infinite;
+    }
+    .container .sparkles > div:nth-child(1) {
+        left: 60px;
+        -moz-animation-delay: 3s;
+        -webkit-animation-delay: 3s;
+        animation-delay: 3s;
+    }
+    .container .sparkles > div:nth-child(2) {
+        left: 158px;
+        -moz-animation-delay: 2s;
+        -webkit-animation-delay: 2s;
+        animation-delay: 2s;
+    }
+    .container .sparkles > div:nth-child(3) {
+        left: -22px;
+        -moz-animation-delay: 1s;
+        -webkit-animation-delay: 1s;
+        animation-delay: 1s;
+    }
+    .container .sparkles > div:nth-child(4) {
+        left: 10px;
+        -moz-animation-delay: 1s;
+        -webkit-animation-delay: 1s;
+        animation-delay: 1s;
+    }
+    .container .sparkles > div:nth-child(5) {
+        left: 177px;
+        -moz-animation-delay: 3s;
+        -webkit-animation-delay: 3s;
+        animation-delay: 3s;
+    }
+    .container .sparkles > div:nth-child(6) {
+        left: -82px;
+        -moz-animation-delay: 2s;
+        -webkit-animation-delay: 2s;
+        animation-delay: 2s;
+    }
+    .container .sparkles > div:nth-child(7) {
+        left: 45px;
+        -moz-animation-delay: 3s;
+        -webkit-animation-delay: 3s;
+        animation-delay: 3s;
+    }
+    .container .sparkles > div:nth-child(8) {
+        left: 74px;
+        -moz-animation-delay: 3s;
+        -webkit-animation-delay: 3s;
+        animation-delay: 3s;
+    }
+    .container .sparkles > div:nth-child(9) {
+        left: -79px;
+        -moz-animation-delay: 2s;
+        -webkit-animation-delay: 2s;
+        animation-delay: 2s;
+    }
+
+    @-webkit-keyframes $animationName {
+        50% {
+            opacity: 1;
+        }
+        100% {
+            bottom: 250px;
+        }
+    }
+    @-moz-keyframes sparkle {
+        50% {
+            opacity: 1;
+        }
+        100% {
+            bottom: 250px;
+        }
+    }
+    @-ms-keyframes sparkle {
+        50% {
+            opacity: 1;
+        }
+        100% {
+            bottom: 250px;
+        }
+    }
+    @keyframes sparkle {
+        50% {
+            opacity: 1;
+        }
+        100% {
+            bottom: 250px;
+        }
+    }
+    @-webkit-keyframes $animationName {
+        50% {
+            -moz-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+            -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+            top: 80px;
+            left: 100px;
+        }
+        100% {
+            -moz-transform: rotate(-60deg);
+            -ms-transform: rotate(-60deg);
+            -webkit-transform: rotate(-60deg);
+            transform: rotate(-60deg);
+            top: 210px;
+            left: -30px;
+        }
+    }
+    @-moz-keyframes openRose2 {
+        50% {
+            -moz-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+            -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+            top: 80px;
+            left: 100px;
+        }
+        100% {
+            -moz-transform: rotate(-60deg);
+            -ms-transform: rotate(-60deg);
+            -webkit-transform: rotate(-60deg);
+            transform: rotate(-60deg);
+            top: 210px;
+            left: -30px;
+        }
+    }
+    @-ms-keyframes openRose2 {
+        50% {
+            -moz-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+            -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+            top: 80px;
+            left: 100px;
+        }
+        100% {
+            -moz-transform: rotate(-60deg);
+            -ms-transform: rotate(-60deg);
+            -webkit-transform: rotate(-60deg);
+            transform: rotate(-60deg);
+            top: 210px;
+            left: -30px;
+        }
+    }
+    @keyframes openRose2 {
+        50% {
+            -moz-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+            -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+            top: 80px;
+            left: 100px;
+        }
+        100% {
+            -moz-transform: rotate(-60deg);
+            -ms-transform: rotate(-60deg);
+            -webkit-transform: rotate(-60deg);
+            transform: rotate(-60deg);
+            top: 210px;
+            left: -30px;
+        }
+    }
+    @-webkit-keyframes $animationName {
+        100% {
+            -moz-transform: rotate(60deg);
+            -ms-transform: rotate(60deg);
+            -webkit-transform: rotate(60deg);
+            transform: rotate(60deg);
+        }
+    }
+    @-moz-keyframes openRose3 {
+        100% {
+            -moz-transform: rotate(60deg);
+            -ms-transform: rotate(60deg);
+            -webkit-transform: rotate(60deg);
+            transform: rotate(60deg);
+        }
+    }
+    @-ms-keyframes openRose3 {
+        100% {
+            -moz-transform: rotate(60deg);
+            -ms-transform: rotate(60deg);
+            -webkit-transform: rotate(60deg);
+            transform: rotate(60deg);
+        }
+    }
+    @keyframes openRose3 {
+        100% {
+            -moz-transform: rotate(60deg);
+            -ms-transform: rotate(60deg);
+            -webkit-transform: rotate(60deg);
+            transform: rotate(60deg);
+        }
+    }
+    @-webkit-keyframes $animationName {
+        100% {
+            -moz-transform: rotate(-30deg);
+            -ms-transform: rotate(-30deg);
+            -webkit-transform: rotate(-30deg);
+            transform: rotate(-30deg);
+        }
+    }
+    @-moz-keyframes openRose4 {
+        100% {
+            -moz-transform: rotate(-30deg);
+            -ms-transform: rotate(-30deg);
+            -webkit-transform: rotate(-30deg);
+            transform: rotate(-30deg);
+        }
+    }
+    @-ms-keyframes openRose4 {
+        100% {
+            -moz-transform: rotate(-30deg);
+            -ms-transform: rotate(-30deg);
+            -webkit-transform: rotate(-30deg);
+            transform: rotate(-30deg);
+        }
+    }
+    @keyframes openRose4 {
+        100% {
+            -moz-transform: rotate(-30deg);
+            -ms-transform: rotate(-30deg);
+            -webkit-transform: rotate(-30deg);
+            transform: rotate(-30deg);
+        }
+    }
+    @-webkit-keyframes $animationName {
+        100% {
+            -moz-transform: rotate(30deg);
+            -ms-transform: rotate(30deg);
+            -webkit-transform: rotate(30deg);
+            transform: rotate(30deg);
+        }
+    }
+    @-moz-keyframes openRose5 {
+        100% {
+            -moz-transform: rotate(30deg);
+            -ms-transform: rotate(30deg);
+            -webkit-transform: rotate(30deg);
+            transform: rotate(30deg);
+        }
+    }
+    @-ms-keyframes openRose5 {
+        100% {
+            -moz-transform: rotate(30deg);
+            -ms-transform: rotate(30deg);
+            -webkit-transform: rotate(30deg);
+            transform: rotate(30deg);
+        }
+    }
+    @keyframes openRose5 {
+        100% {
+            -moz-transform: rotate(30deg);
+            -ms-transform: rotate(30deg);
+            -webkit-transform: rotate(30deg);
+            transform: rotate(30deg);
+        }
+    }
+    @-webkit-keyframes $animationName {
+        50% {
+            box-shadow: 0px 0px 60px #f594b8;
+        }
+    }
+    @-moz-keyframes glowing {
+        50% {
+            box-shadow: 0px 0px 60px #f594b8;
+        }
+    }
+    @-ms-keyframes glowing {
+        50% {
+            box-shadow: 0px 0px 60px #f594b8;
+        }
+    }
+    @keyframes glowing {
+        50% {
+            box-shadow: 0px 0px 60px #f594b8;
+        }
+    }
+
+    .happy{
+        position: relative;
+        top: 150px;
+        right: 700px;
+    }
+
+    .haimuoithangmuoi{
+        position: relative;
+        left: 95px;
+        bottom: 45px;
+    }
+
+    .heart{
+        position: relative;
+        bottom: 280px;
+        left: 650px;
+    }
