@@ -1,0 +1,860 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Dịch vụ — Locket / 5in1 / Truecaller</title>
+    <style>
+        :root{
+            /* Dark purple / black theme */
+            --bg: #07040a;             /* near-black base */
+            --panel: rgba(18,12,22,0.62); /* slightly lifted card */
+            --muted: rgba(230,225,255,0.75); /* muted text */
+            --text: #efe9ff;
+            --accent: #8b5cf6;        /* lilac purple */
+            --accent-strong: #5b21b6; /* deep purple */
+            --glow: rgba(139,92,246,0.16);
+            --shadow: 0 12px 40px rgba(2,2,6,0.7);
+            --radius: 14px;
+            --header-h: 64px;
+
+            /* merged user-provided vars for background & theme */
+            -webkit-text-size-adjust: 100%;
+            tab-size: 4;
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            -webkit-tap-highlight-color: transparent;
+            --font-sans: "Inter", sans-serif;
+            --font-serif: Georgia, serif;
+            --font-mono: Menlo, monospace;
+            --radius: 1.3rem;
+            --shadow-2xs: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0);
+            --shadow-xs: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0);
+            --shadow-sm: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0), 0px 1px 2px -1px hsl(202.8169 89.1213% 53.1373% / 0);
+            --shadow: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0), 0px 1px 2px -1px hsl(202.8169 89.1213% 53.1373% / 0);
+            --shadow-md: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0), 0px 2px 4px -1px hsl(202.8169 89.1213% 53.1373% / 0);
+            --shadow-lg: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0), 0px 4px 6px -1px hsl(202.8169 89.1213% 53.1373% / 0);
+            --shadow-xl: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0), 0px 8px 10px -1px hsl(202.8169 89.1213% 53.1373% / 0);
+            --shadow-2xl: 0px 2px 0px 0px hsl(202.8169 89.1213% 53.1373% / 0);
+            --tracking-normal: 0em;
+            --spacing: .25rem;
+            --night-dark: hsl(240 37.5% 7.0588%);
+            --night-darker: hsl(237 20% 15.2941%);
+            --night-purple: hsl(258 90.5579% 66.2745%);
+            --night-blue: hsl(217 91.2281% 59.6078%);
+            --night-accent: hsl(270 100% 72.1569%);
+            --night-text: hsl(210 40% 97.6471%);
+            --night-muted: hsl(215 20.8% 65.2941%);
+            line-height: inherit;
+            color: var(--night-text);
+            -webkit-font-smoothing: antialiased;
+            font-family: Inter,sans-serif;
+            --background: hsl(240 37.5% 7.0588%);
+            --foreground: hsl(210 40% 97.6471%);
+            --card: hsl(237 20% 15.2941%);
+            --card-foreground: hsl(210 40% 97.6471%);
+            --popover: hsl(240 37.5% 7.0588%);
+            --popover-foreground: hsl(210 40% 97.6471%);
+            --primary: hsl(258 90.5579% 66.2745%);
+            --primary-foreground: hsl(0 0% 100%);
+            --secondary: hsl(237 20% 15.2941%);
+            --secondary-foreground: hsl(210 40% 97.6471%);
+            --muted: hsl(215 25% 27%);
+            --muted-foreground: hsl(215 20.8% 65.2941%);
+            --accent: hsl(270 100% 72.1569%);
+            --accent-foreground: hsl(0 0% 100%);
+            --destructive: hsl(356.3033 90.5579% 54.3137%);
+            --destructive-foreground: hsl(0 0% 100%);
+            --border: hsl(215 25% 27%);
+            --input: hsl(215 25% 27%);
+            --ring: hsl(258 90.5579% 66.2745%);
+            --chart-1: hsl(258 90.5579% 66.2745%);
+            --chart-2: hsl(159.7826 100% 36.0784%);
+            --chart-3: hsl(42.029 92.8251% 56.2745%);
+            --chart-4: hsl(147.1429 78.5047% 41.9608%);
+            --chart-5: hsl(341.4894 75.2% 50.9804%);
+            --sidebar: hsl(237 20% 15.2941%);
+            --sidebar-foreground: hsl(210 40% 97.6471%);
+            --sidebar-primary: hsl(258 90.5579% 66.2745%);
+            --sidebar-primary-foreground: hsl(0 0% 100%);
+            --sidebar-accent: hsl(270 100% 72.1569%);
+            --sidebar-accent-foreground: hsl(0 0% 100%);
+            --sidebar-border: hsl(215 25% 27%);
+            --sidebar-ring: hsl(258 90.5579% 66.2745%);
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: ;
+            --tw-pan-y: ;
+            --tw-pinch-zoom: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-from-position: ;
+            --tw-gradient-via-position: ;
+            --tw-gradient-to-position: ;
+            --tw-ordinal: ;
+            --tw-slashed-zero: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-numeric-fraction: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgb(59 130 246 / .5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-blur: ;
+            --tw-brightness: ;
+            --tw-contrast: ;
+            --tw-grayscale: ;
+            --tw-hue-rotate: ;
+            --tw-invert: ;
+            --tw-saturate: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-blur: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-contrast: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-hue-rotate: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-opacity: ;
+            --tw-backdrop-saturate: ;
+            --tw-backdrop-sepia: ;
+            --tw-contain-size: ;
+            --tw-contain-layout: ;
+            --tw-contain-paint: ;
+            --tw-contain-style: ;
+            box-sizing: border-box;
+            border-width: 0;
+            border-style: solid;
+            border-color: var(--border);
+            display: flex;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            --tw-gradient-from: #111827 var(--tw-gradient-from-position);
+            --tw-gradient-stops: var(--tw-gradient-from), #581c87 var(--tw-gradient-via-position), var(--tw-gradient-to);
+            --tw-gradient-to: #1e3a8a var(--tw-gradient-to-position);
+        }
+
+    *{box-sizing:border-box}
+    /* hide scrollbars visually but keep scrolling functional */
+    html,body{height:100%; overflow-x:hidden; scrollbar-width:none; -ms-overflow-style:none}
+    html::-webkit-scrollbar, body::-webkit-scrollbar{ width:0; height:0 }
+        body{
+            margin:0;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            /* use user-provided gradient as base, keep subtle radials on top */
+            background-image: linear-gradient(to bottom right, var(--tw-gradient-stops)),
+                              radial-gradient(600px 300px at 10% 10%, rgba(139,92,246,0.06), transparent),
+                              radial-gradient(500px 240px at 90% 90%, rgba(91,33,182,0.07), transparent);
+            /* fallback color */
+            background-color: var(--background, var(--bg));
+            color:var(--text);
+            -webkit-font-smoothing:antialiased;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            /* use modest page padding; header/footer will be sticky (in-flow) so extra top padding not required */
+            padding: 24px 40px 40px 40px;
+        }
+
+        .card{
+            width:100%;
+            max-width:980px;
+            /* Desktop: make card slightly wider by default as requested */
+            min-width:150%;
+            height:100%;
+            /* subtle purple tint on the card */
+            background: linear-gradient(180deg, rgba(91,33,182,0.06), rgba(14,8,18,0.6));
+            backdrop-filter: blur(6px) saturate(120%);
+            border-radius:20px;
+            box-shadow: var(--shadow);
+            padding:28px;
+            border: 1px solid rgba(139,92,246,0.08);
+        }
+
+        header{
+            display:flex;
+            align-items:center;
+            gap:16px;
+            margin-bottom:18px;
+        }
+        .logo{
+            width:52px;
+            height:52px;
+            border-radius:12px;
+            background: linear-gradient(180deg, rgba(91,33,182,0.18), rgba(139,92,246,0.08));
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            border:1px solid rgba(255,255,255,0.04);
+            box-shadow: 0 8px 30px rgba(91,33,182,0.12);
+            font-weight:700;
+            color:var(--text);
+        }
+        h1{
+            font-size:18px;
+            margin:0;
+            color:var(--text);
+        }
+        p.lead{
+            margin:6px 0 0 0;
+            color:var(--muted);
+            font-size:13px;
+        }
+
+        .grid{
+            margin-top:18px;
+            display:grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap:14px;
+        }
+
+        .btn{
+            appearance:none;
+            border:1px solid rgba(255,255,255,0.03);
+            /* requested gradient */
+            background: linear-gradient(135deg,#1a1b3acc,#0f0f23e6);
+            padding:14px;
+            display:flex;
+            gap:12px;
+            align-items:center;
+            border-radius:12px;
+            position:relative;
+            cursor:pointer;
+            transition: transform .12s ease, box-shadow .18s ease, border-color .15s ease;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+            color:var(--text);
+            -webkit-font-smoothing:antialiased;
+        }
+        .btn:active{ transform: translateY(1px) scale(.998) }
+        .btn:hover{
+            transform: translateY(-6px);
+            border-color: rgba(139,92,246,0.36);
+            /* purple glow */
+            box-shadow: 0 10px 30px rgba(2,2,6,0.6), 0 4px 30px var(--glow);
+        }
+        .btn:focus-visible{
+            outline:3px solid rgba(139,92,246,0.14);
+            outline-offset:4px;
+        }
+
+        .icon{
+            width:44px;
+            height:44px;
+            min-width:44px;
+            border-radius:10px;
+            display:grid;
+            place-items:center;
+            background:linear-gradient(180deg, rgba(91,33,182,0.22), rgba(139,92,246,0.08));
+            color:var(--text);
+            font-weight:700;
+            font-size:14px;
+            border:1px solid rgba(255,255,255,0.03);
+        }
+        .icon img{
+            width:60%;
+            height:60%;
+            object-fit:contain;
+            display:block;
+            border-radius:6px;
+            filter: drop-shadow(0 6px 18px rgba(91,33,182,0.12));
+        }
+        .icon-text{
+            display:grid;
+            place-items:center;
+            width:100%;
+            height:100%;
+            font-weight:800;
+            font-size:14px;
+            color:var(--text);
+        }
+
+        .label{
+            display:flex;
+            flex-direction:column;
+            align-items:flex-start;
+            gap:4px;
+        }
+        .label .title{
+            font-size:15px;
+            color:var(--text);
+            font-weight:600;
+        }
+        .label .sub{
+            font-size:12px;
+            color:var(--muted);
+        }
+
+        /* toast */
+        .toast{
+            position:fixed;
+            right:20px;
+            bottom:20px;
+            background:linear-gradient(180deg, rgba(22,12,28,0.9), rgba(14,8,18,0.9));
+            color:var(--text);
+            padding:10px 14px;
+            border-radius:10px;
+            box-shadow:0 12px 40px rgba(91,33,182,0.18);
+            opacity:0;
+            transform: translateY(8px) scale(.98);
+            transition:opacity .18s ease, transform .18s ease;
+            pointer-events:none;
+            font-size:13px;
+        }
+        .toast.show{
+            opacity:1;
+            transform:none;
+            pointer-events:auto;
+        }
+        /* Nav label/icon alignment: keep icons and labels vertically centered
+           and nudge the text up slightly so it lines up with the icon visually. */
+        .nav-link{
+            color: rgba(255,255,255,0.8);
+            text-decoration:none;
+            font-weight:600;
+            font-size:14px;
+            padding:6px 8px;
+            border-radius:8px;
+            display:inline-flex;
+            align-items:center;
+            gap:8px;
+            line-height:1;
+        }
+        .nav-link:hover{ color:var(--primary); background: rgba(255,255,255,0.02) }
+
+        .site-nav svg,
+        .nav-link svg{ display:inline-block; vertical-align:middle; width:18px; height:18px }
+
+        .nav-label{
+            display:inline-block;
+            vertical-align:middle;
+            line-height:1;
+        }
+        /* inline copied tooltip that appears above the clicked button */
+        .copied-tooltip{
+            position:absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%) translateY(6px);
+            background: linear-gradient(90deg,var(--accent-strong), var(--accent));
+            color: #fff;
+            padding:6px 10px;
+            border-radius:8px;
+            font-size:13px;
+            white-space:nowrap;
+            opacity:0;
+            pointer-events:none;
+            box-shadow: 0 8px 24px rgba(91,33,182,0.18);
+            transition: opacity .14s ease, transform .14s ease;
+            z-index: 20;
+        }
+        .copied-tooltip.visible{
+            opacity:1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        @media (max-width:420px){
+            .label .title{font-size:14px}
+            .icon{width:40px;height:40px;min-width:40px}
+        }
+
+        /* gentle floating animation for cards or elements with this class */
+        .animate-float{
+            animation: float 6s ease-in-out infinite;
+            transform-origin: center;
+        }
+        @keyframes float{
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-8px) translateZ(0); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Responsive: phone adjustments */
+        @media (max-width:600px){
+            /* Reduce header height and adjust padding for small viewports.
+               Header/footer use sticky positioning so they occupy layout space.
+               Also simplify background for performance. */
+            :root{ --header-h: 56px; }
+
+            body{
+                padding:16px;
+                /* simplify background on small devices for performance */
+                background-image: none;
+                background-color: var(--background, #07040a);
+            }
+
+            .site-container{ padding:0 12px }
+            .site-header{ height: var(--header-h); }
+            .brand-text{ display:none }
+
+            /* hide label text in nav so only icons show on phones */
+            .nav-link{ padding:6px; gap:6px; justify-content:center; min-width:40px }
+            .nav-link .nav-label{ display:none }
+            .site-nav svg, .nav-link svg{ width:20px; height:20px }
+
+            .card{
+                padding:18px;
+                border-radius:14px;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+                /* Mobile: force full-width card and reset desktop min-width */
+                min-width:100% !important;
+                width:100% !important;
+                max-width: none !important;
+                height:100% !important;
+                margin:0;
+            }
+
+            /* completely disable any float/transform on mobile to avoid
+               visual breakage when the screen is small */
+            .card.animate-float,
+            .animate-float{ animation: none !important; transform: none !important }
+
+            .grid{
+                grid-template-columns: 1fr;
+                gap:12px;
+            }
+
+            .btn{
+                padding:12px;
+                gap:10px;
+                border-radius:10px;
+                box-shadow: 0 6px 14px rgba(0,0,0,0.5);
+                transition: box-shadow .12s ease;
+            }
+
+            /* reduce hover transform on touch devices */
+            .btn:hover{
+                transform: none;
+                box-shadow: 0 10px 22px rgba(91,33,182,0.06);
+            }
+
+            .logo{ width:48px; height:48px }
+            .icon{ width:42px; height:42px; min-width:42px }
+            .label .title{ font-size:15px }
+
+            .toast{ right:12px; bottom:12px; font-size:13px }
+        }
+
+        /* Respect reduced motion preference */
+        @media (prefers-reduced-motion: reduce){
+            .animate-float{ animation: none !important }
+            .btn{ transition: none !important }
+        }
+        /* Site header styles */
+        .site-header{
+            position:fixed;
+            top:0; left:0; right:0;
+            height:var(--header-h);
+            display:flex;
+            align-items:center;
+            backdrop-filter: blur(8px) saturate(120%);
+            /* solid header background (no linear gradient) */
+            background: var(--card);
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            z-index: 9998;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+            box-sizing: border-box;
+            max-width: 100vw;
+            overflow: hidden;
+        }
+        .site-container{ max-width:1100px; margin:0 auto; width:100%; padding:0 20px; display:flex; align-items:center; justify-content:space-between }
+        .brand{ display:flex; align-items:center; gap:12px; color:var(--night-text); text-decoration:none }
+    .brand-logo{ width:48px; height:48px; display:inline-grid; place-items:center; border-radius:12px; overflow:hidden }
+        .brand-text{ color:var(--primary); font-weight:800; font-size:18px }
+        .site-nav{ display:flex; gap:18px; align-items:center }
+        .nav-link{ color: rgba(255,255,255,0.8); text-decoration:none; font-weight:600; font-size:14px; padding:6px 8px; border-radius:8px }
+        .nav-link:hover{ color:var(--primary); background: rgba(255,255,255,0.02) }
+
+        @media (max-width:900px){
+            .site-nav{ gap:10px; }
+            .brand-text{ display:none }
+        }
+        /* Footer banner (promo) */
+        .footer-banner{
+            position:fixed;
+            left:12px;
+            right:12px;
+            bottom:12px;
+            display:flex;
+            align-items:center;
+            gap:14px;
+            padding:12px 16px;
+            border-radius:12px;
+            /* translucent background for readability over content */
+            background: rgba(10,8,15,0.36);
+            /* subtle colorful tint preserved via a low-opacity gradient overlay */
+            background-image: linear-gradient(90deg, rgba(107,33,168,0.08) 0%, rgba(124,58,237,0.06) 40%, rgba(37,99,235,0.04) 100%);
+            backdrop-filter: blur(8px) saturate(120%);
+            -webkit-backdrop-filter: blur(8px) saturate(120%);
+            border: 1px solid rgba(255,255,255,0.04);
+            color: #fff;
+            z-index:9999;
+            max-width: calc(100vw - 24px);
+            box-sizing: border-box;
+            /* keep footer visually on top but not cause horizontal overflow */
+            overflow: hidden;
+            touch-action: manipulation;
+        }
+        .footer-banner .fb-icon{
+            width:44px; height:44px; min-width:44px; border-radius:10px;
+            display:grid; place-items:center; font-size:18px; font-weight:700;
+            /* gradient match snippet (uses --night-purple / --night-accent) */
+            background: linear-gradient(135deg, var(--night-purple), var(--night-accent));
+            color:#fff; box-shadow: 0 8px 30px rgba(91,33,182,0.18), inset 0 -6px 18px rgba(0,0,0,0.12);
+        }
+
+        /* subtle pulsing glow used by .animate-glow */
+        .animate-glow{ animation: glow 2.8s ease-in-out infinite; }
+        @keyframes glow{
+            0%{ box-shadow: 0 8px 24px rgba(91,33,182,0.16), inset 0 -6px 18px rgba(0,0,0,0.08); }
+            50%{ box-shadow: 0 16px 40px rgba(91,33,182,0.26), inset 0 -6px 18px rgba(0,0,0,0.08); }
+            100%{ box-shadow: 0 8px 24px rgba(91,33,182,0.16), inset 0 -6px 18px rgba(0,0,0,0.08); }
+        }
+        .footer-banner .fb-text{ flex:1; min-width:0 }
+        .footer-banner .fb-title{ font-weight:700; font-size:15px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis }
+        .footer-banner .fb-sub{ font-size:13px; color: rgba(255,255,255,0.85); margin-top:4px }
+        .footer-banner .fb-actions{ display:flex; gap:10px; align-items:center }
+        .fb-cta{
+            background: linear-gradient(90deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+            color:#fff; border:1px solid rgba(255,255,255,0.18); padding:8px 14px; border-radius:999px; cursor:pointer;
+            font-weight:700; display:inline-flex; gap:8px; align-items:center;
+        }
+        .fb-cta:active{ transform: translateY(1px) }
+        .fb-close{ background:transparent; border:none; color:rgba(255,255,255,0.9); font-size:20px; cursor:pointer; padding:6px; border-radius:8px }
+
+        @media (max-width:600px){
+            /* Mobile footer: make banner compact and adaptive. On small phones
+               switch to stacked layout to avoid cramping the CTA/buttons. */
+            .footer-banner{
+                left:6px;
+                right:6px;
+                bottom:6px;
+                padding:10px;
+                border-radius:12px;
+                flex-direction:row;
+                align-items:center;
+                gap:10px;
+                background: rgba(10,8,15,0.32);
+                background-image: linear-gradient(90deg, rgba(107,33,168,0.06) 0%, rgba(124,58,237,0.04) 40%, rgba(37,99,235,0.03) 100%);
+                backdrop-filter: blur(6px) saturate(110%);
+                -webkit-backdrop-filter: blur(6px) saturate(110%);
+                border: 1px solid rgba(255,255,255,0.03);
+            }
+            .footer-banner .fb-icon{ width:40px; height:40px; min-width:40px }
+            .footer-banner .fb-text{ min-width:0; flex:1 }
+            .footer-banner .fb-title{ font-size:14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis }
+            /* hide the subtitle on very small screens to save space */
+            .footer-banner .fb-sub{ display:none }
+            .footer-banner .fb-actions{ display:flex; gap:8px; align-items:center }
+            .fb-cta{ padding:9px 12px; font-size:14px }
+
+            /* On very narrow displays stack CTA under text for comfortable tap targets */
+            @media (max-width:420px){
+                .footer-banner{ flex-direction:column; align-items:stretch; gap:8px }
+                .footer-banner .fb-text{ order:1 }
+                .footer-banner .fb-actions{ order:2; width:100%; justify-content:space-between }
+                .fb-cta{ flex:1; width:100%; text-align:center }
+                .fb-close{ align-self:flex-end }
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Site header (fixed) -->
+    <header class="site-header" role="banner">
+        <div class="site-container">
+            <div class="brand" aria-label="Nightmarket">
+                <div class="brand-logo" aria-hidden>
+                    <div style="width:48px;height:48px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--night-purple),var(--night-accent));box-shadow:0 8px 20px rgba(91,33,182,0.18);">
+                        <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                            <path d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.752-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" fill="white"></path>
+                        </svg>
+                    </div>
+                </div>
+                <span class="brand-text">Nightmarket</span>
+            </div>
+
+            <nav class="site-nav" role="navigation" aria-label="Primary">
+                <a class="nav-link" href="https://nightmarket.site/">
+                    <!-- house icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house" aria-hidden>
+                        <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path>
+                        <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    </svg>
+                    <span class="nav-label">Trang chủ</span>
+                </a>
+                <a class="nav-link" href="#">
+                    <!-- settings / modules icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden>
+                        <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                    <span class="nav-label">Modules</span>
+                </a>
+                <a class="nav-link" href="https://nightmarket.site/idfree">
+                    <!-- key icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden>
+                        <path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"></path>
+                        <path d="m21 2-9.6 9.6"></path>
+                        <circle cx="7.5" cy="15.5" r="5.5"></circle>
+                    </svg>
+                    <span class="nav-label">ID Free</span>
+                </a>
+                <a class="nav-link" href="https://pxd.nightmarket.site/">
+                    <!-- film icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden>
+                        <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                        <path d="M7 3v18"></path>
+                        <path d="M3 7.5h4"></path>
+                        <path d="M3 12h18"></path>
+                        <path d="M3 16.5h4"></path>
+                        <path d="M17 3v18"></path>
+                        <path d="M17 7.5h4"></path>
+                        <path d="M17 16.5h4"></path>
+                    </svg>
+                    <span class="nav-label">PhimXuyenDem</span>
+                </a>
+                <a class="nav-link" href="https://sidestore.io/#get-started">
+                    <!-- external link / sidestore icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14 21 3"></path>
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    </svg>
+                    <span class="nav-label">SideStore</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+    <main class="card animate-float"  style="min-width:100%;height:auto" role="main">
+        <header>
+            <div class="logo">NM</div>
+            <div>
+                <h1>Chọn dịch vụ</h1>
+                <p class="lead">Link module dự phòng, gọn nhẹ và thân thiện.</p>
+            </div>
+        </header>
+
+        <section class="grid" role="list">
+            <button class="btn" data-name="Locket Gold" data-url="https://raw.githubusercontent.com/NightmarketServer/Locket-IPA/refs/heads/main/Locketgold-V9.module" aria-label="Locket Gold">
+                <div class="icon" aria-hidden>
+                    <img src="icon/Locket.png" alt="Locket">
+                </div>
+                <div class="label">
+                    <span class="title">Locket Gold</span>
+                    <span class="sub">Nâng cấp gold</span>
+                </div>
+            </button>
+
+            <button class="btn" data-name="Locket DNS" data-url="https://www.mediafire.com/file/4qgr8dlx65qwfyv/LocketGoldDNS-+Nightmarket.mobileconfig" data-action="navigate" aria-label="Locket DNS">
+                <div class="icon" aria-hidden>
+                    <img src="icon/DNS.png" alt="DNS">
+                </div>
+                <div class="label">
+                    <span class="title">Locket DNS</span>
+                    <span class="sub">Cấu hình DNS</span>
+                </div>
+            </button>
+
+            <button class="btn" data-name="5in1" data-url="https://raw.githubusercontent.com/NightmarketServer/Shadowrocket-Module/refs/heads/main/Module/5in1%20-%20NightmarketServer" aria-label="5in1">
+                <div class="icon" aria-hidden>
+                    <div class="icon-text">5in1</div>
+                </div>
+                <div class="label">
+                    <span class="title">5in1</span>
+                    <span class="sub">Gói đa năng</span>
+                </div>
+            </button>
+
+            <button class="btn" data-name="3in1" data-url="https://raw.githubusercontent.com/NightmarketServer/Shadowrocket-Module/refs/heads/main/Module/3in1%20-%20Nightmarket%20Server" aria-label="3in1">
+                <div class="icon" aria-hidden>
+                    <div class="icon-text">3in1</div>
+                </div>
+                <div class="label">
+                    <span class="title">3in1</span>
+                    <span class="sub">Gói tiện lợi</span>
+                </div>
+            </button>
+
+            <button class="btn" data-name="Truecaller" data-url="https://raw.githubusercontent.com/NightmarketServer/Shadowrocket-Module/refs/heads/main/Module/TrueCaller.module" aria-label="Truecaller">
+                <div class="icon" aria-hidden>
+                    <img src="icon/Truecaller.png" alt="Truecaller">
+                </div>
+                <div class="label">
+                    <span class="title">Truecaller</span>
+                    <span class="sub">Nhận diện cuộc gọi</span>
+                </div>
+            </button>
+
+            <button class="btn" data-name="Spotify" data-url="https://raw.githubusercontent.com/NightmarketServer/Spotify/refs/heads/main/SpotifyPV2.module" aria-label="Spotify">
+                <div class="icon" aria-hidden>
+                    <img src="icon/Spotify.png" alt="Spotify">
+                </div>
+                <div class="label">
+                    <span class="title">Spotify</span>
+                    <span class="sub">Nghe nhạc</span>
+                </div>
+            </button>
+
+            <button class="btn" data-name="Youtube" data-url="https://raw.githubusercontent.com/NightmarketServer/Youtube-Premium/refs/heads/main/YouTubePremiumV3.5.module" aria-label="Youtube">
+                <div class="icon" aria-hidden>
+                    <img src="icon/Youtube.png" alt="YouTube">
+                </div>
+                <div class="label">
+                    <span class="title">Youtube</span>
+                    <span class="sub">Xem video</span>
+                </div>
+            </button>
+
+            <button class="btn" data-name="Soundcloud" data-url="https://raw.githubusercontent.com/NightmarketServer/SoundCloudPlus/refs/heads/main/soundcloudplus.module" aria-label="Youtube">
+                <div class="icon" aria-hidden>
+                    <img src="icon/Soundcloud.png" alt="YouTube">
+                </div>
+                <div class="label">
+                    <span class="title">Soundcloud</span>
+                    <span class="sub">Nghe nhạc</span>
+                </div>
+            </button>
+        </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <!-- Footer promo banner -->
+    <div id="footerBanner" class="footer-banner" role="region" aria-label="Promo">
+        <div class="fb-icon animate-glow" aria-hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="gamepad-icon" aria-hidden="true">
+                <line x1="6" x2="10" y1="11" y2="11"></line>
+                <line x1="8" x2="8" y1="9" y2="13"></line>
+                <line x1="15" x2="15.01" y1="12" y2="12"></line>
+                <line x1="18" x2="18.01" y1="10" y2="10"></line>
+                <path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"></path>
+            </svg>
+        </div>
+        <div class="fb-text">
+            <div class="fb-title">Thuê ID Game - Muốn thuê ID Apple có game?</div>
+            <div class="fb-sub">Chỉ thuê ID Apple có game - Uy tín, giá tốt</div>
+        </div>
+        <div class="fb-actions">
+            <button class="fb-cta" id="fbCta">Thuê ngay <span class="fb-arrow">➜</span></button>
+            <button class="fb-close" id="fbClose" aria-label="Đóng">×</button>
+        </div>
+    </div>
+
+    <script>
+        // Gọn: sao chép URL vào clipboard (nếu data-url tồn tại) và hiển thị toast
+        (function(){
+            const toast = document.getElementById('toast');
+            let tId = null;
+            function show(msg){
+                toast.textContent = msg;
+                toast.classList.add('show');
+                clearTimeout(tId);
+                tId = setTimeout(()=> toast.classList.remove('show'), 1800);
+            }
+
+            function fallbackCopy(text){
+                return new Promise((resolve, reject) => {
+                    try {
+                        const ta = document.createElement('textarea');
+                        ta.value = text;
+                        // keep it off-screen
+                        ta.style.position = 'fixed';
+                        ta.style.left = '-9999px';
+                        document.body.appendChild(ta);
+                        ta.focus();
+                        ta.select();
+                        const ok = document.execCommand('copy');
+                        document.body.removeChild(ta);
+                        if(ok) resolve(); else reject(new Error('execCommand failed'));
+                    } catch (err) { reject(err); }
+                });
+            }
+
+            function copyText(text){
+                if(!text) return Promise.reject(new Error('No text to copy'));
+                if(navigator.clipboard && navigator.clipboard.writeText){
+                    return navigator.clipboard.writeText(text);
+                }
+                return fallbackCopy(text);
+            }
+
+            // show a short inline tooltip above the clicked button
+            function showInlineCopy(el, msg){
+                if(!el) return;
+                let tip = el.querySelector('.copied-tooltip');
+                if(!tip){
+                    tip = document.createElement('div');
+                    tip.className = 'copied-tooltip';
+                    el.appendChild(tip);
+                }
+                tip.textContent = msg;
+                // reveal
+                tip.classList.add('visible');
+                // clear previous timeout
+                if(tip._hideTimeout) clearTimeout(tip._hideTimeout);
+                tip._hideTimeout = setTimeout(()=>{
+                    tip.classList.remove('visible');
+                }, 1500);
+            }
+
+            document.querySelectorAll('.btn').forEach(btn=>{
+                btn.addEventListener('click', ()=> {
+                    const name = btn.dataset.name || btn.getAttribute('aria-label') || 'Dịch vụ';
+                    const url = btn.dataset.url;
+                    if(url){
+                        // if the button requests navigation, navigate instead of copying
+                        if(btn.dataset.action === 'navigate'){
+                            show('Chuyển hướng: ' + name);
+                            // small delay so the toast can appear briefly (optional)
+                            setTimeout(()=> window.location.assign(url), 150);
+                        } else {
+                            copyText(url).then(()=>{
+                                // show inline tooltip above the clicked button instead of global toast
+                                showInlineCopy(btn, 'Đã sao chép liên kết');
+                            }).catch(err=>{
+                                console.error('Copy failed', err);
+                                show('Không thể sao chép liên kết');
+                            });
+                        }
+                    } else {
+                        show('Bạn đã chọn: ' + name);
+                    }
+                });
+            });
+        })();
+    </script>
+    <script>
+        // Footer banner interactions: CTA and close
+        (function(){
+            const banner = document.getElementById('footerBanner');
+            const close = document.getElementById('fbClose');
+            const cta = document.getElementById('fbCta');
+            if(!banner) return;
+
+            // Close removes banner and stores a flag so it stays closed during the session
+            close && close.addEventListener('click', ()=>{
+                banner.style.transition = 'opacity .18s ease, transform .18s ease';
+                banner.style.opacity = '0';
+                banner.style.transform = 'translateY(8px)';
+                setTimeout(()=> banner.remove(), 220);
+            });
+
+            // CTA opens a target (replace URL as needed)
+            cta && cta.addEventListener('click', ()=>{
+                try{ window.open('https://dvgame.net/join/333', '_blank'); }catch(e){ window.location.href='https://dvgame.net/join/333' }
+            });
+        })();
+    </script>
+</body>
+</html></div>
